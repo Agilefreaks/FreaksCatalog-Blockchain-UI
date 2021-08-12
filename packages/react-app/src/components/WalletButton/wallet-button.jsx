@@ -4,15 +4,17 @@ import { Web3Provider } from '@ethersproject/providers';
 import { Button } from '../styled-components';
 
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
+  function ButtonClick() {
+    if (!provider) {
+      loadWeb3Modal();
+    } else {
+      logoutOfWeb3Modal();
+    }
+  }
+
   return (
     <Button
-      onClick={ () => {
-        if (!provider) {
-          loadWeb3Modal();
-        } else {
-          logoutOfWeb3Modal();
-        }
-      } }
+      onClick={ ButtonClick }
     >
       { !provider ? 'Connect Wallet' : 'Disconnect Wallet' }
     </Button>
