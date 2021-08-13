@@ -8,10 +8,9 @@ function Address({ provider }) {
   return (
     <div>
       { provider && (
-      <span>
-        Your Address is :&nbsp;
-        { address }
-      </span>
+        <span>
+          { `Your Address is ${ address }` }
+        </span>
       ) }
     </div>
   );

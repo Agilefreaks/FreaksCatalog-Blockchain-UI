@@ -4,7 +4,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { Button } from '../styled-components';
 
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
-  function ButtonClick() {
+  function handleLoginButtonClick() {
     if (!provider) {
       loadWeb3Modal();
     } else {
@@ -14,7 +14,7 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
 
   return (
     <Button
-      onClick={ ButtonClick }
+      onClick={ handleLoginButtonClick }
     >
       { !provider ? 'Connect Wallet' : 'Disconnect Wallet' }
     </Button>
