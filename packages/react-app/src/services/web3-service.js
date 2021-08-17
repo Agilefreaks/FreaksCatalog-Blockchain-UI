@@ -1,5 +1,13 @@
+function checkForEthereumObject() {
+  if (typeof window.ethereum === 'undefined') {
+    throw Error('ethereum not defined');
+  }
+}
+
 function getAddress() {
-  return window?.ethereum?.selectedAddress;
+  checkForEthereumObject();
+
+  return window.ethereum.selectedAddress;
 }
 
 export default { getAddress };
