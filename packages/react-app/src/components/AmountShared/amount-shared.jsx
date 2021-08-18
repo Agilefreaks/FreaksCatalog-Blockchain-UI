@@ -10,6 +10,7 @@ function Amount({ onChange }) {
 
     onChange(parsed);
   }
+
   return (
     <div>
       Amount to share :
@@ -18,7 +19,7 @@ function Amount({ onChange }) {
         type="number"
         defaultValue={ 0 }
         onChange={ handleChange }
-        id="textbox"
+        className="textbox"
       />
       <Button>
         Send

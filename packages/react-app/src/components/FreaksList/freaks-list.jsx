@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import '../../freaks.css';
 import PropTypes from 'prop-types';
 import useEthersContract from '../../hooks/useEthersContract';
+import { parseFreaks } from '../../helpers/contract-parser';
+import '../../freaks.css';
+
+function toPercentage(ethValue) {
+  // smart contract can't hold float so I have to divide by 10
+  return ethValue / 10;
+}
+
+function calculatePercentage(percentage, value) {
+  return (value * percentage) / 100;
+}
 
 function FreaksList({ value }) {
   const [ freaks, setFreaks ] = useState([ ]);
   const contract = useEthersContract();
 
   useEffect(() => {
-    function parseFreaks({ _name, _scor }) {
-      const names = _name.map((name) => ({ name }));
-
-      _scor.slice(0, names.length).forEach((scor, index) => {
-        names[index] = { ...names[index], share: scor };
-      });
-
-      return names;
-    }
-
     function loadFreaks() {
       contract.getFreaks()
         .then(parseFreaks)
@@ -27,18 +27,20 @@ function FreaksList({ value }) {
         });
     }
 
-    if (contract !== null) {
+    if (contract) {
       loadFreaks();
     }
   }, [ contract ]);
 
-  function renderFreaks(freak, index) {
+  function renderFreak(freak, index) {
     const { name, share } = freak;
+    const sharePercentage = toPercentage(share);
+
     return (
       <tr key={ index }>
         <td>{ name }</td>
-        <td>{ share / 10 }</td>
-        <td>{ (value * share) / 1000 }</td>
+        <td>{ sharePercentage }</td>
+        <td>{ calculatePercentage(sharePercentage, value) }</td>
       </tr>
     );
   }
@@ -54,7 +56,7 @@ function FreaksList({ value }) {
           </tr>
         </thead>
         <tbody>
-          { freaks.map(renderFreaks) }
+          { freaks.map(renderFreak) }
         </tbody>
       </table>
     </div>
