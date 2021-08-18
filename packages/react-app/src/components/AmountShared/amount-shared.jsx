@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '../styled-components';
 import '../../freaks.css';
 
 function Amount({ onChange }) {
-  const [ amount, setAmount ] = useState(0);
   function handleChange(event) {
-    const value = event.target.value;
-    setAmount(value);
-    onChange(value);
+    const { value } = event.target;
+    const parsed = parseInt(value || 0, 10);
+
+    onChange(parsed);
   }
   return (
     <div>
@@ -16,8 +16,8 @@ function Amount({ onChange }) {
       <input
         name="amount"
         type="number"
+        defaultValue={ 0 }
         onChange={ handleChange }
-        value={ amount }
         id="textbox"
       />
       <Button>
