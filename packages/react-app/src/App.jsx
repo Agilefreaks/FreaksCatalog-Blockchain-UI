@@ -5,6 +5,7 @@ import WalletButton from './components/WalletButton/wallet-button';
 import Address from './components/Address/address';
 import AmountShared from './components/AmountShared/amount-shared';
 import FreaksList from './components/FreaksList/freaks-list';
+import ContractProvider from './containers/contract-provider';
 
 function App() {
   const [ amount, setAmount ] = useState(0);
@@ -23,12 +24,14 @@ function App() {
         />
       </Header>
       <Body>
-        <AmountShared
-          onChange={ setAmount }
-        />
-        <FreaksList
-          value={ amount }
-        />
+        <ContractProvider>
+          <AmountShared
+            onChange={ setAmount }
+          />
+          <FreaksList
+            value={ amount }
+          />
+        </ContractProvider>
       </Body>
     </div>
   );

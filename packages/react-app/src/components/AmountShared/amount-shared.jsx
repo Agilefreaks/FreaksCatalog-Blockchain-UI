@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '../styled-components';
-import '../../freaks.css';
 
 function Amount({ onChange }) {
   function handleChange(event) {
@@ -19,7 +18,6 @@ function Amount({ onChange }) {
         type="number"
         defaultValue={ 0 }
         onChange={ handleChange }
-        className="textbox"
       />
       <Button>
         Send
