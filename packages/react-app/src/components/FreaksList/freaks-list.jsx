@@ -40,8 +40,7 @@ function FreaksList({ value }) {
       <tr key={ index }>
         <td>{ name }</td>
         <td>
-          { sharePercentage }
-          %
+          { `${ sharePercentage } %` }
         </td>
         <td>{ calculatePercentage(sharePercentage, value) }</td>
       </tr>
