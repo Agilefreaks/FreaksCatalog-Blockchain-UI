@@ -8,16 +8,14 @@ export const Header = styled.header`
   align-items: center;
   justify-content: flex-end;
   color: white;
+  padding-bottom:50px;
 `;
 
 export const Body = styled.div`
-  align-items: center;
+  padding-left:50px;
   background-color: #282c34;
   color: white;
-  display: flex;
-  flex-direction: column;
   font-size: calc(10px + 2vmin);
-  justify-content: center;
   min-height: calc(100vh - 70px);
 `;
 
