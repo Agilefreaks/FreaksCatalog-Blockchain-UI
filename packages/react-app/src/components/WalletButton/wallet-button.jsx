@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Web3Provider } from '@ethersproject/providers';
-import { Button } from '../styled-components';
+import { Button } from 'rimble-ui';
 
 function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
   function handleLoginButtonClick() {
@@ -14,6 +14,8 @@ function WalletButton({ provider, loadWeb3Modal, logoutOfWeb3Modal }) {
 
   return (
     <Button
+      mr={ 3 }
+      ml={ 3 }
       onClick={ handleLoginButtonClick }
     >
       { !provider ? 'Connect Wallet' : 'Disconnect Wallet' }
