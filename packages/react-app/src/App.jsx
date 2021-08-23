@@ -12,7 +12,7 @@ function App() {
   const [ provider, loadWeb3Modal, logoutOfWeb3Modal ] = useWeb3Modal();
 
   return (
-    <div>
+    <div data-testid="app-wrapper">
       <Header>
         <Address
           provider={ provider }
