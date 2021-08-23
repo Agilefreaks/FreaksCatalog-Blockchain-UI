@@ -6,7 +6,7 @@ export async function getContract() {
   const deployedAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
   const localhost = 'http://localhost:8545';
   const provider = new ethers.providers.JsonRpcProvider(localhost);
-  const address = Web3Service.getAddress();
+  const address = Web3Service.getAddress(window.ethereum.selectedAddress);
   const signer = provider.getSigner(address);
 
   return new ethers.Contract(deployedAddress, Abi, signer);
