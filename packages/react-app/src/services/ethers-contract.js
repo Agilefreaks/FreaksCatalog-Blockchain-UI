@@ -1,11 +1,12 @@
 import { ethers } from 'ethers';
 import Abi from '../abi/freaks-abi.json';
 import Web3Service from './web3-service';
+import Config from '../config';
 
 export async function getContract() {
-  const deployedAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
-  const localhost = 'http://localhost:8545';
-  const provider = new ethers.providers.JsonRpcProvider(localhost);
+  const deployedAddress = Config.CONTRACT_ADDRESS;
+  const providerAddress = 'http://localhost:8545';
+  const provider = new ethers.providers.JsonRpcProvider(providerAddress);
   const address = Web3Service.getAddress();
   const signer = provider.getSigner(address);
 

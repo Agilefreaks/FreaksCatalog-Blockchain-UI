@@ -4,11 +4,13 @@ import { getContract } from '../services/ethers-contract';
 export default function useEthersContract() {
   const [ contract, setContract ] = useState(null);
 
-  function loadContract() {
-    getContract().then(setContract);
-  }
-
-  useEffect(loadContract, []);
+  useEffect(() => {
+    async function loadContract() {
+      const load = await getContract();
+      setContract(load);
+    }
+    loadContract();
+  }, []);
 
   return contract;
 }
