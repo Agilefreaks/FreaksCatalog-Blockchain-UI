@@ -5,3 +5,4 @@
 import '@testing-library/jest-dom/extend-expect';
 
 import '../__mocks__/web3-service-mock';
+import '../__mocks__/process-env';

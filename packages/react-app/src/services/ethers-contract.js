@@ -8,7 +8,9 @@ export async function getContract() {
   const providerAddress = 'http://localhost:8545';
   const provider = new ethers.providers.JsonRpcProvider(providerAddress);
   const address = Web3Service.getAddress();
+  console.log(address);
   const signer = provider.getSigner(address);
+  console.log(signer);
 
   return new ethers.Contract(deployedAddress, Abi, signer);
 }
