@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '../styled-components';
+import { Input, Button, Flex, Text } from 'rimble-ui';
 
 function Amount({ onChange }) {
   function handleChange(event) {
@@ -12,16 +12,22 @@ function Amount({ onChange }) {
 
   return (
     <div>
-      Amount to share :
-      <input
-        name="amount"
-        type="number"
-        defaultValue={ 0 }
-        onChange={ handleChange }
-      />
-      <Button>
-        Send
-      </Button>
+      <Flex>
+        <Text
+          mb={ 7 }
+          fontSize={ 5 }
+          color="black"
+        >
+          Amount to share :&nbsp;
+        </Text>
+        <Input
+          placeholder="USDC"
+          type="number"
+          onChange={ handleChange }
+          required={ true }
+        />
+        <Button ml={ 3 }>Send</Button>
+      </Flex>
     </div>
   );
 }

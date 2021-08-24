@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { Flex, Box, Table } from 'rimble-ui';
 import { ContractContext } from '../../containers/contract-provider';
 import { parseFreaks } from '../../helpers/contract-parser';
 
@@ -38,25 +39,36 @@ function FreaksList({ value }) {
     return (
       <tr key={ index }>
         <td>{ name }</td>
-        <td>{ sharePercentage }</td>
+        <td>
+          { `${ sharePercentage } %` }
+        </td>
         <td>{ calculatePercentage(sharePercentage, value) }</td>
       </tr>
     );
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Share</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        { freaks.map(renderFreak) }
-      </tbody>
-    </table>
+    <Flex
+      mt={ 4 }
+      mr={ 7 }
+    >
+      <Box
+        width={ 0.6 }
+      >
+        <Table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Share</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            { freaks.map(renderFreak) }
+          </tbody>
+        </Table>
+      </Box>
+    </Flex>
   );
 }
 

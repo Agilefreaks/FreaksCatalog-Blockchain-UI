@@ -1,3 +1,3 @@
 window.ethereum = {
-  selectedAddress: '0x12345',
+  selectedAddress: '0xBcd4042DE499D14e55001CcbB24a551F3b954096',
 };
