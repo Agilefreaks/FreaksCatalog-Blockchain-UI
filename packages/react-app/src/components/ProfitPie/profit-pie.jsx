@@ -27,26 +27,21 @@ function ProfitPie({ freaks }) {
   const labels = freaks.map(({ name }) => name);
   const values = freaks.map(({ share }) => toPercentage(share));
 
-  function dynamicColors() {
-    const colors = [];
-    for (let i = 0; i < labels.length; i += 1) {
-      const r = Math.floor(Math.random() * 255);
-      const g = Math.floor(Math.random() * 255);
-      const b = Math.floor(Math.random() * 255);
-      colors.push(`rgb(${ r }, ${ g }, ${ b })`);
-    }
+  function generateRandomColor() {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
 
-    return colors;
+    return `rgb(${ r }, ${ g }, ${ b })`;
   }
 
   const data = {
     type: 'pie',
     labels,
-    datasets:
-    [
+    datasets: [
       {
         data: values,
-        backgroundColor: dynamicColors(),
+        backgroundColor: labels.map(generateRandomColor),
       },
     ],
   };
