@@ -4,8 +4,8 @@ import useWeb3Modal from './hooks/useWeb3Modal';
 import WalletButton from './components/WalletButton/wallet-button';
 import Address from './components/Address/address';
 import AmountShared from './components/AmountShared/amount-shared';
-import FreaksList from './components/FreaksList/freaks-list';
 import ContractProvider from './containers/contract-provider';
+import FreaksShareContainer from './containers/freaks-shares-container';
 
 function App() {
   const [ amount, setAmount ] = useState(0);
@@ -28,8 +28,8 @@ function App() {
           <AmountShared
             onChange={ setAmount }
           />
-          <FreaksList
-            value={ amount }
+          <FreaksShareContainer
+            amount={ amount }
           />
         </ContractProvider>
       </Body>
