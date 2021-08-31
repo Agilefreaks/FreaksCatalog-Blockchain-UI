@@ -42,8 +42,7 @@ function ProfitPie({ freaks }) {
   const data = {
     type: 'pie',
     labels,
-    datasets:
-    [
+    datasets: [
       {
         data: values,
         backgroundColor: dynamicColors(),
