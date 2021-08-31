@@ -14,7 +14,7 @@ function Amount({ onChange }) {
     <div>
       <Flex>
         <Text
-          mb={ 7 }
+          mb={ 6 }
           fontSize={ 5 }
           color="black"
         >
