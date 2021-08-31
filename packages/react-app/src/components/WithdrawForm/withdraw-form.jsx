@@ -1,17 +1,19 @@
 import React from 'react';
 import { Field, Input, Flex, Text } from 'rimble-ui';
 
-function WithdrawText() {
+function WithdrawForm() {
+  const availableAmount = 0;
+
   return (
     <div>
-      <Flex>
-        <Text
-          mt={ 3 }
-          fontSize={ 5 }
-        >
-          Hi, Freak you can withdraw up to: XXXX USDC
-        </Text>
-      </Flex>
+      <Text
+        mt={ 3 }
+        fontSize={ 5 }
+      >
+        Hi, Freak you can withdraw up to:
+        { availableAmount }
+        USDC
+      </Text>
       <Flex
         mt={ 5 }
       >
@@ -35,4 +37,4 @@ function WithdrawText() {
   );
 }
 
-export default WithdrawText;
+export default WithdrawForm;

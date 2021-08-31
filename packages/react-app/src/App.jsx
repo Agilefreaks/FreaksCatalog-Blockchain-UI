@@ -4,7 +4,7 @@ import useWeb3Modal from './hooks/useWeb3Modal';
 import WalletButton from './components/WalletButton/wallet-button';
 import Address from './components/Address/address';
 import ContractProvider from './containers/contract-provider';
-import FinancialRole from './containers/financial-role-container';
+import FinancialRole from './pages/FinancialRolePage/financial-role-page';
 
 function App() {
   const [ provider, loadWeb3Modal, logoutOfWeb3Modal ] = useWeb3Modal();

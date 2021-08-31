@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AmountShared from '../components/AmountShared/amount-shared';
-import FreaksShareContainer from './freaks-shares-container';
+import AmountShared from '../../components/AmountShared/amount-shared';
+import FreakShareContainer from '../../containers/freaks-shares-container';
 
 function FinancialRole() {
   const [ amount, setAmount ] = useState(0);
@@ -10,7 +10,7 @@ function FinancialRole() {
       <AmountShared
         onChange={ setAmount }
       />
-      <FreaksShareContainer
+      <FreakShareContainer
         amount={ amount }
       />
     </div>

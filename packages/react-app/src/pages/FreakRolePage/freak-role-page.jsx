@@ -1,10 +1,10 @@
 import React from 'react';
-import WithdrawText from '../components/WithdrawText/withdraw-text';
+import WithdrawForm from '../../components/WithdrawForm/withdraw-form';
 
 function FreakRole() {
   return (
     <div>
-      <WithdrawText />
+      <WithdrawForm />
     </div>
   );
 }
