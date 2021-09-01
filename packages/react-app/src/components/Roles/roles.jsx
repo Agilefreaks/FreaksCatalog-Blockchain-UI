@@ -8,7 +8,7 @@ import RoleRoute from '../../containers/role-route-container';
 import RoleRouter from '../../containers/role-router-container';
 import EthContract from '../../services/ethers-contract';
 
-function RoleComponents() {
+function RolePageSwitcher() {
   const contract = useContext(ContractContext);
   const address = Web3Service.getAddress();
   const financial = EthContract.isFinancial(contract, address);
@@ -33,4 +33,4 @@ function RoleComponents() {
   );
 }
 
-export default RoleComponents;
+export default RolePageSwitcher;
