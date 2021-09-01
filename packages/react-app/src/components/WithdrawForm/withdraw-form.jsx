@@ -10,8 +10,9 @@ function WithdrawForm() {
         mt={ 3 }
         fontSize={ 5 }
       >
-        Hi, Freak you can withdraw up to:
+        Hi, Freak you can withdraw up to:&nbsp;
         { availableAmount }
+        &nbsp;
         USDC
       </Text>
       <Flex

@@ -14,9 +14,19 @@ export async function getContract() {
 }
 
 function getFreaks(contract) {
-  return contract.getFreaks();
+  return contract.getFreaks?.();
+}
+
+function isFinancial(contract, address) {
+  return contract?.isFinancial?.(address);
+}
+
+function isFreak(contract, address) {
+  return contract?.isFreak?.(address);
 }
 
 export default {
   getFreaks,
+  isFinancial,
+  isFreak,
 };
