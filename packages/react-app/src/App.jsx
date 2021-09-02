@@ -4,7 +4,7 @@ import useWeb3Modal from './hooks/useWeb3Modal';
 import WalletButton from './components/WalletButton/wallet-button';
 import Address from './components/Address/address';
 import ContractProvider from './containers/contract-provider';
-import FinancialRole from './pages/FinancialRolePage/financial-role-page';
+import RolePageSwitcher from './components/Roles/roles';
 
 function App() {
   const [ provider, loadWeb3Modal, logoutOfWeb3Modal ] = useWeb3Modal();
@@ -23,7 +23,7 @@ function App() {
       </Header>
       <Body>
         <ContractProvider>
-          <FinancialRole />
+          <RolePageSwitcher />
         </ContractProvider>
       </Body>
     </div>
