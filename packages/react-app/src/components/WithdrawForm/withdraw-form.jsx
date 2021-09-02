@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, Input, Flex, Text } from 'rimble-ui';
+import { Field, Input, Flex, Text, Button } from 'rimble-ui';
 
 function WithdrawForm() {
   const availableAmount = 0;
@@ -33,6 +33,12 @@ function WithdrawForm() {
             type="number"
           />
         </Field>
+        <Button
+          ml={ 3 }
+          mt={ 3 }
+        >
+          Withdraw
+        </Button>
       </Flex>
     </div>
   );
