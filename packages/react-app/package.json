@@ -40,7 +40,7 @@
     "react-dom": "16.14.0",
     "react-scripts": "3.4.3",
     "rimble-ui": "^0.14.0",
-    "styled-components": "^5.2.0",
+    "styled-components": "4.4.1",
     "web3modal": "^1.9.1"
   },
   "devDependencies": {
