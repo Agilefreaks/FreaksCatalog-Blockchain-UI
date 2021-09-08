@@ -4,7 +4,7 @@ import Web3Service from './web3-service';
 import Config from '../config';
 
 export async function getContract() {
-  const deployedAddress = Config.CONTRACT_ADDRESS;
+  const deployedAddress = Config.CONTRACT_ADDRESS_FREAK;
   const providerAddress = 'http://localhost:8545';
   const provider = new ethers.providers.JsonRpcProvider(providerAddress);
   const address = Web3Service.getAddress();

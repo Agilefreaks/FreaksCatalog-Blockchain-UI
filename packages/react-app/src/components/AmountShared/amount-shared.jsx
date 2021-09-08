@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Input, Button, Flex, Text } from 'rimble-ui';
+import { Input, Flex, Text } from 'rimble-ui';
+import FinancialButtons from './amount-shared-buttons';
 
 function Amount({ onChange }) {
+  const [ amount, setAmount ] = useState(0);
   function handleChange(event) {
     const { value } = event.target;
     const parsed = parseInt(value || 0, 10);
 
     onChange(parsed);
+    setAmount(parsed);
   }
 
   return (
@@ -24,8 +27,11 @@ function Amount({ onChange }) {
           type="number"
           onChange={ handleChange }
           required={ true }
+          mr={ 3 }
         />
-        <Button ml={ 3 }>Send</Button>
+        <FinancialButtons
+          amount={ amount }
+        />
       </Flex>
     </div>
   );
