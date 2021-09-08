@@ -8,21 +8,21 @@ import ProfitPie from '../components/ProfitPie/profit-pie';
 
 function FreaksShareContainer({ amount }) {
   const [ freaks, setFreaks ] = useState([ ]);
-  const contract = useContext(ContractContext);
+  const { contractFreak } = useContext(ContractContext);
 
   useEffect(() => {
     function loadFreaks() {
-      contract.getFreaks()
+      contractFreak.getFreaks()
         .then(parseFreaks)
         .then(setFreaks)
         .catch((error) => {
           console.error(error);
         });
     }
-    if (contract) {
+    if (contractFreak) {
       loadFreaks();
     }
-  }, [ contract ]);
+  }, [ contractFreak ]);
 
   return (
     <Flex

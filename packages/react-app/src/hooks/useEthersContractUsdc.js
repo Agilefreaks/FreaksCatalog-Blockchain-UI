@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getContract } from '../services/ethers-contract';
+import { getContract } from '../services/ethers-contract-usdc';
 
-export default function useEthersContract() {
-  const [ contract, setContract ] = useState(null);
+export default function useEthersContractUsdc() {
+  const [ contractUsdc, setContract ] = useState(null);
 
   useEffect(() => {
     async function loadContract() {
@@ -12,5 +12,5 @@ export default function useEthersContract() {
     loadContract();
   }, []);
 
-  return contract;
+  return contractUsdc;
 }

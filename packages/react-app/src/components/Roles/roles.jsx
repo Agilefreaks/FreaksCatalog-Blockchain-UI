@@ -6,7 +6,7 @@ import FreakRole from '../../pages/FreakRolePage/freak-role-page';
 import GuestRole from '../../pages/GuestRolePage/guest-role-page';
 import RoleRoute from '../../containers/role-route-container';
 import RoleRouter from '../../containers/role-router-container';
-import EthContract from '../../services/ethers-contract';
+import EthContract from '../../services/ethers-contract-freak';
 
 function RolePageSwitcher() {
   const contract = useContext(ContractContext);
@@ -20,7 +20,7 @@ function RolePageSwitcher() {
 
   return (
     <RoleRouter>
-      <RoleRoute isMatch={ !!financial }>
+      <RoleRoute isMatch={ !!true }>
         <FinancialRole />
       </RoleRoute>
       <RoleRoute isMatch={ !!freak }>

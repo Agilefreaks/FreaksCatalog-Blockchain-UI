@@ -1,14 +1,16 @@
 import React, { createContext } from 'react';
 import PropTypes from 'prop-types';
-import useEthersContract from '../hooks/useEthersContract';
+import useEthersContractFreak from '../hooks/useEthersContractFreak';
+import useEthersContractUsdc from '../hooks/useEthersContractUsdc';
 
 export const ContractContext = createContext(null);
 
 function ContractProvider({ children }) {
-  const contract = useEthersContract();
+  const contractFreak = useEthersContractFreak();
+  const contractUsdc = useEthersContractUsdc();
 
   return (
-    <ContractContext.Provider value={ contract }>
+    <ContractContext.Provider value={ { contractFreak, contractUsdc } }>
       { children }
     </ContractContext.Provider>
   );
