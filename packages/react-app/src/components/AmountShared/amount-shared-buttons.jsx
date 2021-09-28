@@ -1,25 +1,32 @@
 import React, { useState, useContext } from 'react';
+import { BigNumber } from 'ethers';
 import { Button, Tooltip } from 'rimble-ui';
 import PropTypes from 'prop-types';
 import { ContractContext } from '../../containers/contract-provider';
-import Web3Service from '../../services/web3-service';
 import Config from '../../config';
 
 function FinancialButtons({ amount }) {
-  const callerAddress = Web3Service.getAddress();
-  const profitSharingContractAddress = Config.CONTRACT_ADDRESS_PROFIT;
-  const { contractUsdc } = useContext(ContractContext);
+  const usdcContractAddress = Config.CONTRACT_ADDRESS_USDC;
+  const { contractUsdc, contractProfit } = useContext(ContractContext);
   const [ buttonState, setState ] = useState('disabled');
   const buttonApprove = 'Approve';
   const buttonWithdraw = 'Send';
+  const power = BigNumber.from(10).pow(18);
+  const bigAmount = BigNumber.from(amount).mul(power);
 
   function approveTransfer() {
-    contractUsdc.approve(callerAddress, amount);
-    setState('');
+    console.log('cash', contractUsdc.balanceOf('0x97f80a23f0f8edf33c2acbae1d517320625a9dab'));
+    contractUsdc.approve(usdcContractAddress, bigAmount)
+      .then(setState(''))
+      .catch((error) => {
+        console.error(error);
+      });
   }
-
   function startTransfer() {
-    contractUsdc.transferFrom(callerAddress, profitSharingContractAddress, amount);
+    contractProfit.allocate(bigAmount, '1609391249', '1617163649')
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   return (

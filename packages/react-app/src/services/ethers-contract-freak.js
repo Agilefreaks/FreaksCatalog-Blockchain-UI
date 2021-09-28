@@ -1,32 +1,30 @@
 import { ethers } from 'ethers';
 import Abi from '../abi/freaks-abi.json';
-import Web3Service from './web3-service';
 import Config from '../config';
 
 export async function getContract() {
+  await window.ethereum.enable();
   const deployedAddress = Config.CONTRACT_ADDRESS_FREAK;
-  const providerAddress = 'http://localhost:8545';
-  const provider = new ethers.providers.JsonRpcProvider(providerAddress);
-  const address = Web3Service.getAddress();
-  const signer = provider.getSigner(address);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
 
   return new ethers.Contract(deployedAddress, Abi, signer);
 }
 
 function getFreaks(contract) {
-  return contract.getFreaks?.();
+  return contract.getFreaks();
 }
 
 function isFinancial(contract, address) {
-  return contract?.isFinancial?.(address);
+  return contract.isFinancial(address);
 }
 
-function isFreak(contract, address) {
-  return contract?.isFreak?.(address);
+function getFreak(contract, address) {
+  return contract.getFreak(address);
 }
 
 export default {
   getFreaks,
   isFinancial,
-  isFreak,
+  getFreak,
 };

@@ -10,6 +10,11 @@
         "internalType": "string",
         "name": "_symbol",
         "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_financial",
+        "type": "address"
       }
     ],
     "stateMutability": "nonpayable",

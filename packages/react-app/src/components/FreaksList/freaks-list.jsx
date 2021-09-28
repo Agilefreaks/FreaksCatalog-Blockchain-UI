@@ -47,7 +47,7 @@ function FreaksList({ value, freaks }) {
 }
 const freakShape = {
   name: PropTypes.string,
-  share: PropTypes.number,
+  share: PropTypes.object,
 };
 
 FreaksList.propTypes = {
