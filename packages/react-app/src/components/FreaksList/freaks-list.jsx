@@ -30,9 +30,7 @@ function FreaksList({ value, freaks }) {
 
   return (
     <div className="table-wrap">
-      <Table
-        mb="7rem"
-      >
+      <Table>
         <thead>
           <tr>
             <th>Name</th>
@@ -49,7 +47,7 @@ function FreaksList({ value, freaks }) {
 }
 const freakShape = {
   name: PropTypes.string,
-  share: PropTypes.number,
+  share: PropTypes.object,
 };
 
 FreaksList.propTypes = {

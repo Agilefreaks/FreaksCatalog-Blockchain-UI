@@ -1,6 +1,6 @@
 function checkForEthereumObject() {
   if (typeof window.ethereum === 'undefined') {
-    throw Error('ethereum not defined');
+    throw Error('You need a wallet to access this page.');
   }
 }
 
