@@ -3,7 +3,6 @@ import Abi from '../abi/freaks-abi.json';
 import Config from '../config';
 
 export async function getContract() {
-  await window.ethereum.enable();
   const deployedAddress = Config.CONTRACT_ADDRESS_FREAK;
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
